@@ -4,7 +4,7 @@ import {
 } from "../lib/auth.js";
 
 const EL_SALVADOR_OFFSET_MS = -6 * 60 * 60 * 1000;
-const EDITABLE_FIELDS = ["provider", "driverName", "plate", "phone", "transportType", "customFields"];
+const EDITABLE_FIELDS = ["provider", "driverName", "plate", "phone", "transportType", "customFields", "dock"];
 
 function haversineMeters(lat1, lng1, lat2, lng2) {
   const R = 6371000;

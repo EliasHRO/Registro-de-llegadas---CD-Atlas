@@ -105,7 +105,65 @@
   @keyframes spin{to{transform:rotate(360deg);}}
   .geo-retry{margin-left:6px;border:none;background:var(--accent-dark);color:#fff;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:7px;cursor:pointer;font-family:inherit;}
 
-  .topbar{background:rgba(255,255,255,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-soft);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+  .app-shell{display:flex;min-height:100vh;width:100%;}
+  .sidebar{width:220px;flex-shrink:0;background:linear-gradient(180deg,#0B2A43,#0E3552);display:flex;flex-direction:column;padding:20px 14px;position:sticky;top:0;height:100vh;overflow-y:auto;}
+  .sidebar-logo{display:flex;align-items:center;gap:8px;padding:0 6px 20px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .sidebar-logo img{height:20px;filter:brightness(0) invert(1);opacity:.92;}
+  .sidebar-logo .div{width:1px;height:16px;background:rgba(255,255,255,.25);}
+  .sidebar-title{font-size:12.5px;font-weight:800;color:#fff;letter-spacing:-.01em;padding:0 6px 16px;}
+  .sidebar-nav{display:flex;flex-direction:column;gap:3px;flex:1;}
+  .sidebar-item{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:9px;border:none;background:transparent;color:#9FB4C8;font-size:13px;font-weight:600;cursor:pointer;text-align:left;font-family:inherit;transition:all .15s;}
+  .sidebar-item svg{flex-shrink:0;}
+  .sidebar-item:hover{background:rgba(255,255,255,.06);color:#fff;}
+  .sidebar-item.active{background:#F2A93B;color:#0B2A43;box-shadow:0 4px 12px -4px rgba(242,169,59,.5);}
+  .sidebar-divider{height:1px;background:rgba(255,255,255,.1);margin:10px 4px;}
+  .sidebar-footer{border-top:1px solid rgba(255,255,255,.1);padding-top:14px;margin-top:10px;}
+  .sidebar-user{display:flex;align-items:center;gap:9px;padding:6px;margin-bottom:8px;}
+  .sidebar-user-avatar{width:30px;height:30px;border-radius:50%;background:#F2A93B;color:#0B2A43;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;}
+  .sidebar-user-name{color:#fff;font-size:12.5px;font-weight:700;}
+  .sidebar-user-role{color:#9FB4C8;font-size:10.5px;}
+
+  .main-area{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .filter-bar{background:#fff;border-bottom:1px solid var(--border-soft);padding:14px 26px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:9;}
+  .filter-bar .fb-title{font-size:17px;font-weight:800;color:var(--text);margin-right:14px;white-space:nowrap;}
+  .fb-select{padding:9px 13px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg-elevated);font-size:12.5px;font-weight:600;color:var(--text);font-family:inherit;cursor:pointer;}
+  .fb-search{padding:9px 13px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg-elevated);font-size:12.5px;font-family:inherit;min-width:170px;margin-left:auto;}
+
+  .week-strip{background:#fff;border-bottom:1px solid var(--border-soft);padding:12px 26px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .week-strip .today-btn{padding:8px 16px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg-elevated);font-weight:700;font-size:12.5px;color:var(--text);cursor:pointer;font-family:inherit;}
+  .week-strip .today-btn:hover{border-color:var(--accent);}
+  .week-strip .cur-date{font-weight:700;font-size:13px;color:var(--text);white-space:nowrap;}
+  .week-strip .wk-nav{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;padding:4px 6px;}
+  .week-strip .wk-nav:hover{color:var(--accent);}
+  .week-days{display:flex;gap:6px;margin-left:auto;}
+  .week-day-btn{display:flex;flex-direction:column;align-items:center;padding:6px 13px;border-radius:9px;border:1.5px solid transparent;background:transparent;cursor:pointer;font-family:inherit;}
+  .week-day-btn .wd-name{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;}
+  .week-day-btn .wd-num{font-size:12.5px;font-weight:700;color:var(--text);margin-top:2px;}
+  .week-day-btn:hover{background:var(--bg-elevated);}
+  .week-day-btn.active{background:var(--accent-soft);border-color:var(--accent);}
+  .week-day-btn.active .wd-name,.week-day-btn.active .wd-num{color:var(--accent-dark);}
+
+  .category-tabs{display:flex;gap:10px;padding:16px 26px 0;flex-wrap:wrap;}
+  .cat-tab{padding:14px 10px;border-radius:9px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-weight:700;font-size:13px;text-align:center;cursor:pointer;font-family:inherit;flex:1;min-width:120px;transition:all .15s;}
+  .cat-tab.active{background:var(--info-soft);border-color:var(--info);color:var(--info);}
+
+  .cal-wrap{padding:16px 26px 40px;overflow-x:auto;}
+  .cal-grid{display:grid;border:1px solid var(--border-soft);border-radius:12px;overflow:hidden;background:#fff;min-width:600px;}
+  .cal-head-row{display:contents;}
+  .cal-cell-head{background:var(--bg-elevated);padding:10px 8px;font-size:11.5px;font-weight:800;color:var(--muted);text-align:center;border-bottom:1px solid var(--border-soft);border-right:1px solid var(--border-soft);position:sticky;top:0;}
+  .cal-hour-label{background:var(--bg-elevated);padding:8px;font-size:11px;font-weight:700;color:var(--muted);border-right:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);text-align:right;white-space:nowrap;}
+  .cal-cell{border-right:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:4px;min-height:58px;display:flex;flex-direction:column;gap:4px;}
+  .load-card{border-radius:7px;border:1.5px solid var(--info);background:var(--info-soft);padding:6px 8px;font-size:10.5px;cursor:pointer;transition:transform .12s;animation:fadeIn .3s ease;}
+  .load-card:hover{transform:scale(1.03);}
+  .load-card.despachado{border-color:var(--ok);background:var(--ok-soft);}
+  .load-card .lc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
+  .load-card .lc-plate{font-weight:800;font-family:'JetBrains Mono',monospace;font-size:11.5px;}
+  .load-card .lc-badge{font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:99px;text-transform:uppercase;}
+  .load-card.despachado .lc-badge{background:var(--ok);color:#fff;}
+  .load-card:not(.despachado) .lc-badge{background:var(--info);color:#fff;}
+  .load-card .lc-prov{font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cal-empty{padding:60px 20px;text-align:center;color:var(--muted);}
+  .cal-empty .big{font-weight:700;color:var(--text);margin-bottom:6px;font-size:15px;}
   .topbar::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--accent-glow),transparent);}
   .topbar h1{font-size:17px;font-weight:800;margin:0;background:linear-gradient(135deg,var(--text),#5A6070);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .topbar .live{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ok);font-weight:700;margin-left:12px;}
@@ -684,47 +742,253 @@ function animateCountUp(el, from, to, duration){
   requestAnimationFrame(step);
 }
 
+function sidebarIcon(name){
+  const icons = {
+    dashboard: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="3" width="8" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="12" width="8" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>`,
+    calendar: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+    suggest: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    fields: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="10" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="16" width="10" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/></svg>`,
+    users: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M16 8.5a3 3 0 010 5.8M20 20c0-2.8-1.8-5-4.3-5.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`,
+    qr: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z" fill="currentColor"/></svg>`,
+    settings: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="1.5"/></svg>`,
+    eye: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>`,
+    logout: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  };
+  return icons[name] || '';
+}
+
+let calCategory = 'Todos';
+let calSearchTerm = '';
+
+function renderCalendarShell(){
+  document.getElementById('viewContent').innerHTML = `
+    <div class="filter-bar" style="border-top:1px solid var(--border-soft);">
+      <input class="fb-search" id="calSearch" placeholder="Buscar por placa o proveedor...">
+    </div>
+    <div class="week-strip">
+      <button class="today-btn" id="calToday">Hoy</button>
+      <span class="cur-date" id="calDateLabel"></span>
+      <button class="wk-nav" id="calWeekPrev" title="Semana anterior">«</button>
+      <button class="wk-nav" id="calDayPrev" title="Día anterior">‹</button>
+      <div class="week-days" id="weekDays"></div>
+      <button class="wk-nav" id="calDayNext" title="Día siguiente">›</button>
+      <button class="wk-nav" id="calWeekNext" title="Semana siguiente">»</button>
+    </div>
+    <div class="category-tabs" id="catTabs">
+      <button class="cat-tab active" data-cat="Todos">Todos</button>
+      <button class="cat-tab" data-cat="Contenedor">Contenedor</button>
+      <button class="cat-tab" data-cat="Camión">Camión</button>
+      <button class="cat-tab" data-cat="Otros">Otros</button>
+    </div>
+    <div class="cal-wrap" id="calGridArea"></div>
+  `;
+  document.getElementById('calSearch').addEventListener('input', (e)=>{ calSearchTerm = e.target.value.toLowerCase(); renderCalendarView(); });
+  document.getElementById('calToday').onclick = ()=>{ dayOffset = 0; renderCalendarShellState(); renderCalendarView(); };
+  document.getElementById('calDayPrev').onclick = ()=>{ dayOffset -= 1; renderCalendarShellState(); renderCalendarView(); };
+  document.getElementById('calDayNext').onclick = ()=>{ dayOffset += 1; renderCalendarShellState(); renderCalendarView(); };
+  document.getElementById('calWeekPrev').onclick = ()=>{ dayOffset -= 7; renderCalendarShellState(); renderCalendarView(); };
+  document.getElementById('calWeekNext').onclick = ()=>{ dayOffset += 7; renderCalendarShellState(); renderCalendarView(); };
+  document.getElementById('catTabs').addEventListener('click', (e)=>{
+    const btn = e.target.closest('.cat-tab');
+    if(!btn) return;
+    document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    calCategory = btn.dataset.cat;
+    renderCalendarView();
+  });
+  renderCalendarShellState();
+}
+
+function renderCalendarShellState(){
+  const parts = localDateParts(dayOffset);
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  document.getElementById('calDateLabel').textContent = `${parts.d} de ${meses[parts.m]} de ${parts.y}`;
+
+  // calcula el lunes de la semana que contiene el día seleccionado
+  const local = new Date(nowElSalvador().getTime() + dayOffset*24*60*60*1000);
+  const dow = local.getUTCDay();
+  const diffToMonday = dow === 0 ? -6 : 1 - dow;
+  const mondayOffset = dayOffset + diffToMonday;
+
+  const dias = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+  let html = '';
+  for(let i=0;i<7;i++){
+    const off = mondayOffset + i;
+    const p = localDateParts(off);
+    const isActive = off === dayOffset;
+    html += `<button type="button" class="week-day-btn ${isActive?'active':''}" data-off="${off}">
+      <span class="wd-name">${dias[i]}</span><span class="wd-num">${p.d}</span>
+    </button>`;
+  }
+  const wd = document.getElementById('weekDays');
+  wd.innerHTML = html;
+  wd.querySelectorAll('.week-day-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      dayOffset = parseInt(btn.dataset.off);
+      renderCalendarShellState();
+      renderCalendarView();
+    });
+  });
+}
+
+const CAL_HOURS = Array.from({length:15}, (_,i)=>i+6); // 06:00 a 20:00
+
+function dockColumnsFor(records){
+  const docks = new Set();
+  records.forEach(r=>{ if(r.dock) docks.add(String(r.dock)); });
+  let cols = Array.from(docks).sort((a,b)=>a.localeCompare(b, undefined, {numeric:true}));
+  if(cols.length === 0) cols = ['1','2','3','4'];
+  cols.push('S/A');
+  return cols;
+}
+
+async function renderCalendarView(){
+  cachedArrivals = await loadArrivals();
+  const parts = localDateParts(dayOffset);
+  let dayRecords = cachedArrivals.filter(r => r.date === parts.key);
+  if(calCategory !== 'Todos') dayRecords = dayRecords.filter(r => r.transportType === calCategory);
+  if(calSearchTerm){
+    dayRecords = dayRecords.filter(r =>
+      (r.plate||'').toLowerCase().includes(calSearchTerm) ||
+      (r.provider||'').toLowerCase().includes(calSearchTerm) ||
+      (r.driverName||'').toLowerCase().includes(calSearchTerm)
+    );
+  }
+
+  const gridArea = document.getElementById('calGridArea');
+  if(!gridArea) return;
+
+  if(dayRecords.length === 0){
+    gridArea.innerHTML = `<div class="cal-empty"><div class="big">No hay registros este día</div>Prueba otro día, categoría o búsqueda.</div>`;
+    return;
+  }
+
+  const cols = dockColumnsFor(dayRecords);
+  const byCell = {};
+  dayRecords.forEach(r=>{
+    const hour = Math.min(20, Math.max(6, parseInt((r.time||'06:00').split(':')[0], 10)));
+    const col = r.dock ? String(r.dock) : 'S/A';
+    const key = `${hour}-${col}`;
+    (byCell[key] = byCell[key] || []).push(r);
+  });
+
+  let html = `<div class="cal-grid" style="grid-template-columns:90px repeat(${cols.length},1fr);">`;
+  html += `<div class="cal-cell-head"></div>`;
+  cols.forEach(c=>{ html += `<div class="cal-cell-head">${c === 'S/A' ? 'Sin muelle' : 'Muelle ' + c}</div>`; });
+
+  CAL_HOURS.forEach(hour=>{
+    html += `<div class="cal-hour-label">${pad(hour)}:00</div>`;
+    cols.forEach(col=>{
+      const items = byCell[`${hour}-${col}`] || [];
+      html += `<div class="cal-cell">${items.map(r=>{
+        const isDone = r.status === 'despachado';
+        return `<div class="load-card ${isDone?'despachado':''}" data-edit="${r.id}">
+          <div class="lc-top"><span class="lc-plate">${r.plate||'—'}</span><span class="lc-badge">${isDone?'Listo':r.time}</span></div>
+          <div class="lc-prov">${r.provider||''}</div>
+        </div>`;
+      }).join('')}</div>`;
+    });
+  });
+  html += `</div>`;
+  gridArea.innerHTML = html;
+
+  gridArea.querySelectorAll('[data-edit]').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      if(!isAdmin()){ toast('Solo un administrador puede editar'); return; }
+      const record = cachedArrivals.find(r=>r.id === card.dataset.edit);
+      if(record) showEditModal(record);
+    });
+  });
+}
+
 async function renderDashboard(){
   const admin = isAdmin();
   app.innerHTML = `
-    <div class="topbar">
-      <div style="display:flex;align-items:center;">
-        <div class="logo-row logo-row-topbar">
+    <div class="app-shell">
+      <div class="sidebar">
+        <div class="sidebar-logo">
           <img src="/assets/novex.png" alt="NOVEX">
-          <div class="logo-divider"></div>
+          <div class="div"></div>
           <img src="/assets/vidri.png" alt="VIDRI">
         </div>
-        <h1>Torre de Control · Gestión de Patio</h1>
-        <span class="role-badge ${admin?'admin':'viewer'}">${admin?'Administrador':'Vista'}</span>
-        <span class="live"><span class="pulse"></span>en vivo</span>
-        <span class="clock" id="liveClock"></span>
+        <div class="sidebar-title">Torre de Control</div>
+        <nav class="sidebar-nav">
+          <button class="sidebar-item ${activeNavView==='dashboard'?'active':''}" data-nav="dashboard">${sidebarIcon('dashboard')}Dashboard</button>
+          <button class="sidebar-item ${activeNavView==='calendar'?'active':''}" data-nav="calendar">${sidebarIcon('calendar')}Citas</button>
+          <button class="sidebar-item" data-nav="suggest">${sidebarIcon('suggest')}Sugerencias</button>
+          ${admin ? `
+          <div class="sidebar-divider"></div>
+          <button class="sidebar-item" data-nav="fields">${sidebarIcon('fields')}Campos</button>
+          <button class="sidebar-item" data-nav="users">${sidebarIcon('users')}Usuarios</button>
+          <button class="sidebar-item" data-nav="qr">${sidebarIcon('qr')}Código QR</button>
+          <button class="sidebar-item" data-nav="settings">${sidebarIcon('settings')}Configuración</button>
+          <button class="sidebar-item" id="btnViewMode" data-nav="__viewmode">${sidebarIcon('eye')}Modo visualización</button>
+          ` : ''}
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">${(getUsername()||'?').charAt(0).toUpperCase()}</div>
+            <div><div class="sidebar-user-name">${getUsername()}</div><div class="sidebar-user-role">${admin?'Administrador':'Vista'}</div></div>
+          </div>
+          <button class="sidebar-item" id="btnExit">${sidebarIcon('logout')}Salir</button>
+        </div>
       </div>
-      <div class="topbar-right">
-        <div class="icon-btn" id="btnSuggest" title="Enviar sugerencia">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="main-area">
+        <div class="filter-bar">
+          <span class="fb-title">${activeNavView==='calendar' ? 'Citas · Gestión de Patio' : 'Dashboard · Gestión de Patio'}</span>
+          <span class="role-badge ${admin?'admin':'viewer'}">${admin?'Administrador':'Vista'}</span>
+          <span class="live"><span class="pulse"></span>en vivo</span>
+          <span class="clock" id="liveClock"></span>
         </div>
-        ${admin ? `
-        <div class="icon-btn" id="btnFields" title="Campos del formulario">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="10" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="16" width="10" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/></svg>
-        </div>
-        <div class="icon-btn" id="btnUsers" title="Usuarios">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M16 8.5a3 3 0 010 5.8M20 20c0-2.8-1.8-5-4.3-5.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-        </div>
-        <div class="icon-btn" id="btnViewMode" title="Modo solo visualización">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
-        </div>
-        <div class="icon-btn" id="btnQr" title="Código QR">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z" fill="currentColor"/></svg>
-        </div>
-        <div class="icon-btn" id="btnSettings" title="Configuración">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="1.5"/></svg>
-        </div>
-        ` : ''}
-        <div class="icon-btn" id="btnExit" title="Salir">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div id="viewContent"></div>
       </div>
     </div>
+  `;
+  document.getElementById('btnExit').onclick = ()=>{ clearSession(); clearInterval(clockTimer); route(); };
+  document.querySelectorAll('.sidebar-item[data-nav]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const nav = btn.dataset.nav;
+      if(nav === 'suggest'){ showSuggestionsModal(); return; }
+      if(nav === 'fields'){ showFieldsModal(); return; }
+      if(nav === 'users'){ showUsersModal(); return; }
+      if(nav === 'qr'){ showQrModal(); return; }
+      if(nav === 'settings'){ showSettingsModal(); return; }
+      if(nav === '__viewmode'){
+        viewOnlyMode = !viewOnlyMode;
+        btn.classList.toggle('active-view', viewOnlyMode);
+        toast(viewOnlyMode ? 'Modo solo visualización activado' : 'Modo edición activado');
+        if(activeNavView === 'dashboard') renderList();
+        return;
+      }
+      activeNavView = nav;
+      document.querySelectorAll('.sidebar-item[data-nav]').forEach(b=>b.classList.remove('active'));
+      if(nav === 'dashboard' || nav === 'calendar') btn.classList.add('active');
+      document.querySelector('.fb-title').textContent = nav==='calendar' ? 'Citas · Gestión de Patio' : 'Dashboard · Gestión de Patio';
+      renderActiveView();
+    });
+  });
+
+  updateClock();
+  if(clockTimer) clearInterval(clockTimer);
+  clockTimer = setInterval(updateClock, 1000);
+
+  await renderActiveView();
+  if(refreshTimer) clearInterval(refreshTimer);
+  refreshTimer = setInterval(()=>{ if(activeNavView==='dashboard') renderList(); else renderCalendarView(); }, 20000);
+}
+
+async function renderActiveView(){
+  if(activeNavView === 'calendar'){
+    renderCalendarShell();
+    await renderCalendarView();
+  } else {
+    renderCardsShell();
+    await renderList();
+  }
+}
+
+function renderCardsShell(){
+  document.getElementById('viewContent').innerHTML = `
     <div class="dash-body">
       <div class="section-title">Estado del patio ahora</div>
       <div class="cards-row" id="kpiRow"></div>
@@ -750,20 +1014,6 @@ async function renderDashboard(){
       <div class="cards-grid" id="cardsArea"></div>
     </div>
   `;
-  document.getElementById('btnExit').onclick = ()=>{ clearSession(); clearInterval(clockTimer); route(); };
-  document.getElementById('btnSuggest').onclick = showSuggestionsModal;
-  if(admin){
-    document.getElementById('btnQr').onclick = showQrModal;
-    document.getElementById('btnSettings').onclick = showSettingsModal;
-    document.getElementById('btnFields').onclick = showFieldsModal;
-    document.getElementById('btnUsers').onclick = showUsersModal;
-    document.getElementById('btnViewMode').onclick = ()=>{
-      viewOnlyMode = !viewOnlyMode;
-      document.getElementById('btnViewMode').classList.toggle('active-view', viewOnlyMode);
-      toast(viewOnlyMode ? 'Modo solo visualización activado' : 'Modo edición activado');
-      renderList();
-    };
-  }
   document.getElementById('searchBox').addEventListener('input', renderList);
   document.getElementById('btnLayoutToggle').onclick = ()=>{
     cardViewMode = cardViewMode === 'grid' ? 'list' : 'grid';
@@ -785,14 +1035,6 @@ async function renderDashboard(){
     updateDayNav();
     renderList();
   });
-
-  updateClock();
-  if(clockTimer) clearInterval(clockTimer);
-  clockTimer = setInterval(updateClock, 1000);
-
-  await renderList();
-  if(refreshTimer) clearInterval(refreshTimer);
-  refreshTimer = setInterval(renderList, 20000);
 }
 
 function greenTintStyle(waitMinutes){
@@ -812,7 +1054,7 @@ async function renderList(){
   if(search){
     filtered = filtered.filter(r => r.provider.toLowerCase().includes(search) || (r.driverName||'').toLowerCase().includes(search) || (r.plate||'').toLowerCase().includes(search) || (r.transportType||'').toLowerCase().includes(search) || (r.phone||'').toLowerCase().includes(search));
   }
-  filtered.sort((a,b)=>b.ts-a.ts);
+  filtered.sort((a,b)=>a.ts-b.ts);
 
   const todayKey = localDateParts().key;
   const enPatioAhora = cachedArrivals.filter(r=>r.status!=='despachado').length;
@@ -1039,6 +1281,7 @@ function showEditModal(record){
           ${['Contenedor','Camión','Otros'].map(t=>`<option value="${t}" ${record.transportType===t?'selected':''}>${t}</option>`).join('')}
         </select>
       </div>
+      <div class="field"><label>Muelle asignado (opcional)</label><input id="editDock" value="${record.dock||''}" placeholder="Ej. 1, 2, 3..."></div>
       ${customEntries.length ? `<div class="section-label">Campos adicionales</div>` + customEntries.map(([k,v])=>`<div class="field"><label>${k}</label><input class="edit-custom" data-key="${k}" value="${v}"></div>`).join('') : ''}
       <div class="modal-actions">
         <button class="btn-secondary" style="border-color:var(--accent);color:var(--accent-dark);" id="editDelete">Eliminar registro</button>
@@ -1054,7 +1297,7 @@ function showEditModal(record){
       await apiDelete('/api/arrivals', { id: record.id });
       overlay.remove();
       toast('Registro eliminado');
-      renderList();
+      if(activeNavView === 'calendar') renderCalendarView(); else renderList();
     }catch(e){ toast(e.message || 'No se pudo eliminar'); }
   };
   overlay.querySelector('#editSave').onclick = async ()=>{
@@ -1068,11 +1311,12 @@ function showEditModal(record){
         phone: document.getElementById('editPhone').value.trim(),
         plate: document.getElementById('editPlate').value.trim(),
         transportType: document.getElementById('editType').value,
+        dock: document.getElementById('editDock').value.trim(),
         customFields
       });
       overlay.remove();
       toast('Registro actualizado');
-      renderList();
+      if(activeNavView === 'calendar') renderCalendarView(); else renderList();
     }catch(e){ toast(e.message || 'No se pudo guardar'); }
   };
 }
