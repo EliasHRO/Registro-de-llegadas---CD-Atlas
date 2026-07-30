@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "torre-control-llegadas",
+  "name": "registro-de-llegadas---cd-atlas",
   "main": "src/index.js",
   "compatibility_date": "2026-07-30",
   "assets": {
@@ -9,7 +9,7 @@
   "kv_namespaces": [
     {
       "binding": "TORRE_KV",
-      "id": "REEMPLAZA_ESTE_ID_CON_EL_DE_TU_NAMESPACE"
+      "id": "3b7bbfbd82d0459f88fefd707da6507d"
     }
   ]
 }
