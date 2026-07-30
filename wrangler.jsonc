@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "torre-control-llegadas",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-30",
+  "assets": {
+    "directory": "./public"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "TORRE_KV",
+      "id": "REEMPLAZA_ESTE_ID_CON_EL_DE_TU_NAMESPACE"
+    }
+  ]
+}
